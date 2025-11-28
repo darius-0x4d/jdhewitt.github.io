@@ -1,9 +1,10 @@
-name: Deploy to GitHub Pages - Test 2
+name: Deploy to GitHub Pages - Test
 
 on:
   push:
     branches:
       - main # Or 'main' depending on your default branch
+      - gh-pages
 
 jobs:
   build-and-deploy:
@@ -21,6 +22,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '24'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
