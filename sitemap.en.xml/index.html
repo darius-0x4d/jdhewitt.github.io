@@ -1,0 +1,65 @@
+<!DOCTYPE html><html class="overflow-y-auto overflow-x-hidden" lang="en" dir="ltr"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="modulepreload" href="/assets/manifest-11d19859.js"/><link rel="modulepreload" href="/assets/entry.client-CzdFnCz4.js"/><link rel="modulepreload" href="/assets/chunk-EF7DTUVF-DdtV_Bze.js"/><link rel="modulepreload" href="/assets/chunk-T3VM44WY-Zj8XUQA5.js"/><link rel="modulepreload" href="/assets/resource-IEXyur_h.js"/><link rel="modulepreload" href="/assets/root-TKq6cEVg.js"/><link rel="modulepreload" href="/assets/compiler-runtime-_-phYlo9.js"/><link rel="modulepreload" href="/assets/link-C74tZToc.js"/><link rel="modulepreload" href="/assets/index-fuGLY9JQ.js"/><link rel="modulepreload" href="/assets/_-fOUy2COu.js"/><link rel="modulepreload" href="/assets/bundle-mjs-D6B6e0vX.js"/><link rel="icon" href="/favicon.ico?v=2"/><script>
+// This block of code allows us to check if the client hints have changed and
+// force a reload of the page with updated hints if they have so you don't get
+// a flash of incorrect content.
+function checkClientHints() {
+	if (!navigator.cookieEnabled) return;
+
+	// set a short-lived cookie to make sure we can set cookies
+	document.cookie = "canSetCookies=1; Max-Age=60; SameSite=Lax; path=/";
+	const canSetCookies = document.cookie.includes("canSetCookies=1");
+	document.cookie = "canSetCookies=; Max-Age=-1; path=/";
+	if (!canSetCookies) return;
+
+	const cookies = document.cookie.split(';').map(c => c.trim()).reduce((acc, cur) => {
+		const [key, value] = cur.split('=');
+		acc[key] = value;
+		return acc;
+	}, {});
+
+	let cookieChanged = false;
+	const hints = [
+	{ name: "CH-prefers-color-scheme", actual: String(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), value: cookies["CH-prefers-color-scheme"] != null ? cookies["CH-prefers-color-scheme"] : encodeURIComponent("light") },
+{ name: "CH-time-zone", actual: String(Intl.DateTimeFormat().resolvedOptions().timeZone), value: cookies["CH-time-zone"] != null ? cookies["CH-time-zone"] : encodeURIComponent("UTC") },
+{ name: "CH-reduced-motion", actual: String(window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduce' : 'no-preference'), value: cookies["CH-reduced-motion"] != null ? cookies["CH-reduced-motion"] : encodeURIComponent("no-preference") }
+	];
+	for (const hint of hints) {
+		document.cookie = encodeURIComponent(hint.name) + '=' + encodeURIComponent(hint.actual) + '; Max-Age=31536000; SameSite=Lax; path=/';
+		if (decodeURIComponent(hint.value) !== hint.actual) {
+			cookieChanged = true;
+		}
+	}
+	if (cookieChanged) {
+		// Hide the page content immediately to prevent visual flicker
+		const style = document.createElement('style');
+		style.textContent = 'html { visibility: hidden !important; }';
+		document.head.appendChild(style);
+
+		// Trigger the reload
+		window.location.reload();
+	}
+}
+
+checkClientHints();
+</script><link rel="stylesheet" href="/assets/tailwind-BetNborj.css"/></head><body class="h-full w-full"><script>((e,i,s,u,m,a,l,h)=>{let d=document.documentElement,w=["light","dark"];function p(n){(Array.isArray(e)?e:[e]).forEach(y=>{let k=y==="class",S=k&&a?m.map(f=>a[f]||f):m;k?(d.classList.remove(...S),d.classList.add(a&&a[n]?a[n]:n)):d.setAttribute(y,n)}),R(n)}function R(n){h&&w.includes(n)&&(d.style.colorScheme=n)}function c(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(u)p(u);else try{let n=localStorage.getItem(i)||s,y=l&&n==="system"?c():n;p(y)}catch(n){}})("class","theme","light",null,["light","dark"],null,true,true)</script><div class="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 p-4 dark:from-blue-950 dark:to-blue-900 dark:text-white"><div class="w-full max-w-2xl text-center"><div class="mb-8 flex justify-center"><svg class="inline-block flex-shrink-0 h-24 w-24 animate-float text-indigo-600" fill="currentColor" stroke="currentColor" width="24" height="24" data-name="Ghost"><title>Ghost</title><use href="/assets/icon-BtjiWALv.svg#Ghost"></use></svg></div><h1 class="mb-4 font-bold text-6xl text-gray-900 dark:text-white">404</h1><h2 class="mb-4 font-semibold text-3xl text-gray-800 dark:text-white">Page Not found!</h2><p class="mb-8 text-gray-600 text-lg dark:text-white">Oops! The page you&#x27;re looking for seems to have vanished into thin air.</p><div class="flex flex-col justify-center gap-4 sm:flex-row"><button type="button" class="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-100 px-6 py-3 font-medium text-base text-indigo-700 transition-colors duration-300 hover:bg-indigo-200">Go back</button><a class="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 font-medium text-base text-white transition-colors duration-300 hover:bg-indigo-700" href="/" data-discover="true">Back to home</a></div></div></div><script>((storageKey2, restoreKey) => {
+    if (!window.history.state || !window.history.state.key) {
+      let key = Math.random().toString(32).slice(2);
+      window.history.replaceState({ key }, "");
+    }
+    try {
+      let positions = JSON.parse(sessionStorage.getItem(storageKey2) || "{}");
+      let storedY = positions[restoreKey || window.history.state.key];
+      if (typeof storedY === "number") {
+        window.scrollTo(0, storedY);
+      }
+    } catch (error) {
+      console.error(error);
+      sessionStorage.removeItem(storageKey2);
+    }
+  })("react-router-scroll-positions", null)</script><script>window.env = {}</script><script>window.__reactRouterContext = {"basename":"/","future":{"unstable_middleware":false,"unstable_optimizeDeps":true,"unstable_splitRouteModules":true,"unstable_subResourceIntegrity":false,"unstable_viteEnvironmentApi":true},"routeDiscovery":{"mode":"initial"},"ssr":true,"isSpaMode":false};window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());</script><script type="module" async="">import "/assets/manifest-11d19859.js";
+import * as route0 from "/assets/root-TKq6cEVg.js";
+import * as route1 from "/assets/_-fOUy2COu.js";
+  
+  window.__reactRouterRouteModules = {"root":route0,"routes/$":route1};
+
+import("/assets/entry.client-CzdFnCz4.js");</script><!--$?--><template id="B:0"></template><!--/$--><div hidden id="S:0"><script>window.__reactRouterContext.streamController.enqueue("[{\"_1\":2,\"_15\":-5,\"_16\":-5},\"loaderData\",{\"_3\":4},\"root\",{\"_5\":-7,\"_6\":-7,\"_7\":8},\"lang\",\"clientEnv\",\"hints\",{\"_9\":10,\"_11\":12,\"_13\":14},\"theme\",\"light\",\"timeZone\",\"UTC\",\"reducedMotion\",\"no-preference\",\"actionData\",\"errors\"]\n");</script><!--$?--><template id="B:1"></template><!--/$--></div><script>$RC=function(b,c,e){c=document.getElementById(c);c.parentNode.removeChild(c);var a=document.getElementById(b);if(a){b=a.previousSibling;if(e)b.data="$!",a.setAttribute("data-dgst",e);else{e=b.parentNode;a=b.nextSibling;var f=0;do{if(a&&8===a.nodeType){var d=a.data;if("/$"===d)if(0===f)break;else f--;else"$"!==d&&"$?"!==d&&"$!"!==d||f++}d=a.nextSibling;e.removeChild(a);a=d}while(a);for(;c.firstChild;)e.insertBefore(c.firstChild,a);b.data="$"}b._reactRetry&&b._reactRetry()}};$RC("B:0","S:0")</script><div hidden id="S:1"><script>window.__reactRouterContext.streamController.close();</script></div><script>$RC("B:1","S:1")</script></body></html>
