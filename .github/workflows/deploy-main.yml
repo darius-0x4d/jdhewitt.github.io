@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main # Or 'main' depending on your default branch
-      - gh-pages
 
 jobs:
   build-and-deploy:
