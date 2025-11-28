@@ -1,0 +1,15 @@
+export { b as default } from './assets/index-Cc0_0yrO.js';
+import 'remix-hono/i18next';
+import 'hono/factory';
+import 'http';
+import 'http2';
+import 'stream';
+import 'crypto';
+import 'hono/utils/mime';
+import 'fs';
+import 'path';
+import 'hono';
+import 'hono/logger';
+import 'react-router';
+import 'remix-i18next/server';
+import 'zod/v4';
